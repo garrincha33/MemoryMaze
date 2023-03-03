@@ -12,6 +12,9 @@ struct MazeView: View {
     
     let maze: [[MazeGenerator.Cell]]
     var player: Player = Player(row: 0, column: 0) // initialize player at top-left corner
+    @State var playerRow: Int = 0
+    @State var playerCol: Int = 0
+
     
     var body: some View {
         GeometryReader { geometry in
@@ -62,18 +65,38 @@ struct MazeView: View {
                 // Draw player marker
                 drawPlayerMarker(cellSize: cellSize)
             }
+            
+            .gesture(DragGesture(minimumDistance: 0)
+                .onChanged { gesture in
+                    // Calculate the row and column of the cell under the touch location
+                    let cellSize = min(geometry.size.width, geometry.size.height) / CGFloat(max(maze.count, maze.first?.count ?? 0))
+                    let col = Int(gesture.location.x / cellSize)
+                    let row = Int(gesture.location.y / cellSize)
+
+                    // Check if the cell is adjacent to the player's current position
+                    if abs(row - playerRow) + abs(col - playerCol) == 1 {
+                        // Update the player's position
+                        playerRow = row
+                        playerCol = col
+                    }
+                }
+            )
+
         }
+        
+        
     }
     
     private func drawPlayerMarker(cellSize: CGFloat) -> some View {
-        let x = CGFloat(player.column) * cellSize
-        let y = CGFloat(player.row) * cellSize
-        
+        let x = CGFloat(playerCol) * cellSize
+        let y = CGFloat(playerRow) * cellSize
+
         return Circle()
             .fill(Color.blue)
             .frame(width: cellSize/2, height: cellSize/2)
             .position(x: x + cellSize/2, y: y + cellSize/2)
     }
+
 }
 
 class Player {
