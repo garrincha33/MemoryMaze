@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+
 struct MazeView: View {
     
     let maze: [[MazeGenerator.Cell]]
+    var player: Player = Player(row: 0, column: 0) // initialize player at top-left corner
     
     var body: some View {
         GeometryReader { geometry in
@@ -56,9 +58,36 @@ struct MazeView: View {
                         }
                     }
                 }
+                
+                // Draw player marker
+                drawPlayerMarker(cellSize: cellSize)
             }
         }
     }
+    
+    private func drawPlayerMarker(cellSize: CGFloat) -> some View {
+        let x = CGFloat(player.column) * cellSize
+        let y = CGFloat(player.row) * cellSize
+        
+        return Circle()
+            .fill(Color.blue)
+            .frame(width: cellSize/2, height: cellSize/2)
+            .position(x: x + cellSize/2, y: y + cellSize/2)
+    }
 }
+
+class Player {
+    var row: Int
+    var column: Int
+    
+    init(row: Int, column: Int) {
+        self.row = row
+        self.column = column
+    }
+}
+
+
+
+
 
 
