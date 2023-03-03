@@ -8,42 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let maze = MazeGenerator(rows: 10, columns: 10).generateMaze()
+    
     var body: some View {
         NavigationView {
             VStack {
-                Spacer()
-                
-                Text("Memory Maze")
-                    .font(.largeTitle)
-                
-                Spacer()
-                
-                NavigationLink(destination: GameView()) {
-                    Text("New Game")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-                
+                MazeView(maze: maze)
+                    .aspectRatio(1.0, contentMode: .fit)
                 Spacer()
             }
-            .navigationTitle("")
-            .navigationBarHidden(true)
+            .navigationBarTitle("Memory Maze")
         }
     }
 }
 
-struct GameView: View {
-    var body: some View {
-        Text("Game")
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
+struct MazeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MazeView(maze: MazeGenerator(rows: 5, columns: 5).generateMaze())
     }
 }
 

@@ -12,6 +12,8 @@
 		82BB222429B1CC6600423733 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82BB222329B1CC6600423733 /* Assets.xcassets */; };
 		82BB222729B1CC6600423733 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82BB222629B1CC6600423733 /* Preview Assets.xcassets */; };
 		82BB223229B1CD3A00423733 /* GameManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BB223129B1CD3A00423733 /* GameManagerViewModel.swift */; };
+		82BB223A29B1E75B00423733 /* MazeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BB223929B1E75B00423733 /* MazeGenerator.swift */; };
+		82BB223C29B1E78000423733 /* MazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BB223B29B1E78000423733 /* MazeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		82BB222329B1CC6600423733 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82BB222629B1CC6600423733 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82BB223129B1CD3A00423733 /* GameManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagerViewModel.swift; sourceTree = "<group>"; };
+		82BB223929B1E75B00423733 /* MazeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeGenerator.swift; sourceTree = "<group>"; };
+		82BB223B29B1E78000423733 /* MazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 		82BB222D29B1CCD500423733 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				82BB223B29B1E78000423733 /* MazeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 		82BB223029B1CCEF00423733 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				82BB223929B1E75B00423733 /* MazeGenerator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -174,6 +180,8 @@
 			files = (
 				82BB223229B1CD3A00423733 /* GameManagerViewModel.swift in Sources */,
 				82BB222229B1CC6500423733 /* ContentView.swift in Sources */,
+				82BB223A29B1E75B00423733 /* MazeGenerator.swift in Sources */,
+				82BB223C29B1E78000423733 /* MazeView.swift in Sources */,
 				82BB222029B1CC6500423733 /* Memory_MazeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
